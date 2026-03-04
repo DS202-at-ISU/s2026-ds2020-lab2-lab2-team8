@@ -43,7 +43,7 @@ Occupancy: Categorical variable displaying type of occupancy in the home
 Year Built: Numeric variable displaying the year the home was built, expected range 1900-2026
 Acres: Numeric variable displaying the total acreage of the property, expected range 0.01 - 5
 Total Living Area: Numeric variable displaying living area in square feet, expected range 400 - 5000 sf
-Finished Basement Area: Numeric variable displaying finished basement area in square feet, expected range 0 - 2000 
+Finished Basement Area: Numeric variable displaying finished basement area in square feet, expected range 0 - 2000
 Bedrooms: Numeric variable displaying number of bedrooms, expected range 0 - 7
 Lot Area: Numeric variable displaying lot area in square feet, expected range 0 - 20000 sf
 AC: categorical variable displaying if there is ac or not
