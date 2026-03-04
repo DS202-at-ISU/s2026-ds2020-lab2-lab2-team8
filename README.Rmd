@@ -4,16 +4,66 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit the README.Rmd file -->
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Lab report #1
 
-Follow the instructions posted at https://ds202-at-isu.github.io/labs.html for the lab assignment. The work is meant to be finished during the lab time, but you have time until Monday evening to polish things.
+Follow the instructions posted at <https://ds202-at-isu.github.io/labs.html> for the lab assignment. The work is meant to be finished during the lab time, but you have time until Monday evening to polish things.
 
-Include your answers in this document (Rmd file). Make sure that it knits properly (into the md file). Upload both the Rmd and the md file to your repository.  
+Include your answers in this document (Rmd file). Make sure that it knits properly (into the md file). Upload both the Rmd and the md file to your repository.
 
-All submissions to the github repo will be automatically uploaded for grading once the due date is passed.
-Submit a link to your repository on Canvas (only one submission per team) to signal to the instructors that you are done with your submission.
+All submissions to the github repo will be automatically uploaded for grading once the due date is passed. Submit a link to your repository on Canvas (only one submission per team) to signal to the instructors that you are done with your submission.
+
+**Aniroop's Work:**
+
+This analysis explores residential home sales in Ames since 2017. The distribution of SalePrice is right-skewed, with most homes selling between \$150,000 and \$350,000. Larger homes tend to sell for higher prices. We examined the relationship between living area and sale price and found a strong positive relationship.
+
+**Inspecting the Dataset:**
+
+```{r}
+library(classdata)
+library(tidyverse)
+
+data(ames)
+
+head(ames)
+glimpse(ames)
+```
+
+The Ames dataset contains information on residential property sales in Ames, Iowa.\
+The variables include both numeric and categorical types. Numerical variables measure quantities such as price and square footage, while categorical variable represent classifications like neigbhorhood or house style.
+
+**Step 2: Main Variable**
+
+The main variable for this analysis is \*\*SalePrice\*\*, which represents the final selling price of a home.\
+\
+SalePrice is a numeric variable measured in dollars. Typical values range from around \$100,000 to over \$500,000 depending on the size, condition, and location of the home.
+
+**Step 3: Distribution of SalePrice**
+
+```{r}
+ggplot(ames, aes(x = `Sale Price`)) +
+  geom_histogram(bins = 30, fill = "steelblue", color = "white") +
+  labs(
+    title = "Distribution of Sale Prices",
+    x = "Sale Price",
+    y = "Count"
+  )
+```
+
+The histogram shows that sale prices are right skewed.
+
+**Step 4: Relationship Between Living Area and Sale Price**
+
+```{r}
+ggplot(filter(ames, `Sale Price` > 0),
+       aes(x = `TotalLivingArea (sf)`, y = `Sale Price`)) +
+  geom_point(alpha = 0.6) +
+  labs(
+    title = "Sale Price vs Living Area",
+    x = "Total Living Area (sq ft)",
+    y = "Sale Price"
+  )
+```
