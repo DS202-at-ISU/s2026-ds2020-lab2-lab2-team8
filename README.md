@@ -33,10 +33,10 @@ library(tidyverse)
 ```
 
     ## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-    ## ✔ dplyr     1.1.4     ✔ readr     2.1.6
+    ## ✔ dplyr     1.2.0     ✔ readr     2.2.0
     ## ✔ forcats   1.0.1     ✔ stringr   1.6.0
-    ## ✔ ggplot2   4.0.1     ✔ tibble    3.3.1
-    ## ✔ lubridate 1.9.4     ✔ tidyr     1.3.2
+    ## ✔ ggplot2   4.0.2     ✔ tibble    3.3.1
+    ## ✔ lubridate 1.9.5     ✔ tidyr     1.3.2
     ## ✔ purrr     1.2.1     
     ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
     ## ✖ dplyr::filter() masks stats::filter()
@@ -93,6 +93,50 @@ variables measure quantities such as price and square footage, while
 categorical variable represent classifications like neigbhorhood or
 house style.
 
+## Ewan’s notes
+
+The first lines of the dataset displays the varibles:
+
+Parcel ID: A unique string for each property, no expected range
+
+Address: string representing the property’s address, no expected range
+
+Occupancy: Categorical variable displaying type of occupancy in the home
+
+Year Built: Numeric variable displaying the year the home was built,
+expected range 1900-2026
+
+Acres: Numeric variable displaying the total acreage of the property,
+expected range 0.01 - 5
+
+Total Living Area: Numeric variable displaying living area in square
+feet, expected range 400 - 5000 sf
+
+Finished Basement Area: Numeric variable displaying finished basement
+area in square feet, expected range 0 - 2000
+
+Bedrooms: Numeric variable displaying number of bedrooms, expected range
+0 - 7
+
+Lot Area: Numeric variable displaying lot area in square feet, expected
+range 0 - 20000 sf
+
+AC: categorical variable displaying if there is ac or not
+
+Fireplace: categorical variable displaying if there is a fireplace or
+not
+
+Neighborhood: string representing the neighborhood the property is in
+
+Sale date: quantitative variable representing the date the property was
+sold, range expected 2017 - 2026
+
+Sale price: quantitative variable representing the price the home sold
+for, expected range \$50,000 - \$800,000
+
+Multi sale: variable representing whether multiple properties were
+bought in one sale
+
 **Step 2: Main Variable**
 
 The main variable for this analysis is \*\*SalePrice\*\*, which
@@ -135,3 +179,27 @@ ggplot(filter(ames, `Sale Price` > 0),
     ## (`geom_point()`).
 
 ![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+
+## Ewan’s Work:
+
+## Relationship between Year Built and Sale Price
+
+``` r
+ames %>%
+  filter(YearBuilt > 1800, `Sale Price` > 0, `Sale Price` < 1000000) %>%
+  ggplot(aes(x = YearBuilt, y = `Sale Price`))+
+    geom_point(alpha = 0.3) +
+    labs(
+      title = "Sale price vs Year Built",
+      x = "Year Built",
+      y = "Sale Price"
+      )
+```
+
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+
+The range of Year Built is roughly from 1880 - 2020. The data is skewed
+to the left with the majority of homes being newer. The graph shows a
+trend that newer homes tend to sell for a higher price. The y-axis is
+skewed to the right, meaning that the majority of homes sell for a lower
+price which relates to what is seen in step 3.
