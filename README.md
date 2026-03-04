@@ -95,7 +95,6 @@ house style.
 
 ## Ewan’s notes
 
-<<<<<<< HEAD
 The first lines of the dataset displays the varibles:
 
 Parcel ID: A unique string for each property, no expected range
@@ -137,28 +136,6 @@ for, expected range \$50,000 - \$800,000
 
 Multi sale: variable representing whether multiple properties were
 bought in one sale
-=======
-The first lines of the dataset displays the varibles: Parcel ID: A
-unique string for each property, no expected range Address: string
-representing the property’s address, no expected range Occupancy:
-Categorical variable displaying type of occupancy in the home Year
-Built: Numeric variable displaying the year the home was built, expected
-range 1900-2026 Acres: Numeric variable displaying the total acreage of
-the property, expected range 0.01 - 5 Total Living Area: Numeric
-variable displaying living area in square feet, expected range 400 -
-5000 sf Finished Basement Area: Numeric variable displaying finished
-basement area in square feet, expected range 0 - 2000 Bedrooms: Numeric
-variable displaying number of bedrooms, expected range 0 - 7 Lot Area:
-Numeric variable displaying lot area in square feet, expected range 0 -
-20000 sf AC: categorical variable displaying if there is ac or not
-Fireplace: categorical variable displaying if there is a fireplace or
-not Neighborhood: string representing the neighborhood the property is
-in Sale date: quantitative variable representing the date the property
-was sold, range expected 2017 - 2026 Sale price: quantitative variable
-representing the price the home sold for, expected range \$50,000 -
-\$800,000 Multi sale: variable representing whether multiple properties
-were bought in one sale
->>>>>>> 1709517b419a6c726c636e9f4267895b91fb8c09
 
 **Step 2: Main Variable**
 
@@ -201,16 +178,11 @@ ggplot(filter(ames, `Sale Price` > 0),
     ## Warning: Removed 365 rows containing missing values or values outside the scale range
     ## (`geom_point()`).
 
-<<<<<<< HEAD
 ![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 ## Ewan’s Work:
 
 ## Relationship between Year Built and Sale Price
-=======
-![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- --> \## Ewan’s
-Work: \## Relationship between Year Built and Sale Price
->>>>>>> 1709517b419a6c726c636e9f4267895b91fb8c09
 
 ``` r
 ames %>%
@@ -224,7 +196,6 @@ ames %>%
       )
 ```
 
-<<<<<<< HEAD
 ![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 The range of Year Built is roughly from 1880 - 2020. The data is skewed
@@ -232,11 +203,3 @@ to the left with the majority of homes being newer. The graph shows a
 trend that newer homes tend to sell for a higher price. The y-axis is
 skewed to the right, meaning that the majority of homes sell for a lower
 price which relates to what is seen in step 3.
-=======
-![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- --> The range of
-Year Built is roughly from 1880 - 2020. The data is skewed to the left
-with the majority of homes being newer. The graph shows a trend that
-newer homes tend to sell for a higher price. The y-axis is skewed to the
-right, meaning that the majority of homes sell for a lower price which
-relates to what is seen in step 3.
->>>>>>> 1709517b419a6c726c636e9f4267895b91fb8c09

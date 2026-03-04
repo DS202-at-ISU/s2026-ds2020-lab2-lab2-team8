@@ -35,6 +35,7 @@ glimpse(ames)
 The Ames dataset contains information on residential property sales in Ames, Iowa.\
 The variables include both numeric and categorical types. Numerical variables measure quantities such as price and square footage, while categorical variable represent classifications like neigbhorhood or house style.
 
+
 ## Ewan's notes
 The first lines of the dataset displays the varibles:
 
@@ -67,6 +68,7 @@ Sale date: quantitative variable representing the date the property was sold, ra
 Sale price: quantitative variable representing the price the home sold for, expected range $50,000 - $800,000
 
 Multi sale: variable representing whether multiple properties were bought in one sale
+
 
 
 **Step 2: Main Variable**
