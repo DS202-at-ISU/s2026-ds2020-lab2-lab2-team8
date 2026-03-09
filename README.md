@@ -162,7 +162,25 @@ ggplot(ames, aes(x = `Sale Price`)) +
 
 The histogram shows that sale prices are right skewed.
 
-**Step 4: Relationship Between Living Area and Sale Price**
+## Mason’s work: (modification to original histogram)
+
+``` r
+ames %>%
+  filter(`Sale Price` < 600000, `Sale Price` > 0) %>%
+ggplot(aes(x = `Sale Price`)) +
+  geom_histogram(bins = 30, fill = "steelblue", color = "white") +
+  labs(
+    title = "Distribution of Sale Prices",
+    x = "Sale Price",
+    y = "Count"
+  )
+```
+
+![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- --> This version
+of the histogram removes Sale Price of 0, and limits it to 600,000. This
+way, you can more clearly see the right skewed nature of the histogram,
+and have a better idea of the distribution. **Step 4: Relationship
+Between Living Area and Sale Price**
 
 ``` r
 ggplot(filter(ames, `Sale Price` > 0),
@@ -178,7 +196,7 @@ ggplot(filter(ames, `Sale Price` > 0),
     ## Warning: Removed 365 rows containing missing values or values outside the scale range
     ## (`geom_point()`).
 
-![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 ## Ewan’s Work:
 
@@ -196,10 +214,50 @@ ames %>%
       )
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 The range of Year Built is roughly from 1880 - 2020. The data is skewed
 to the left with the majority of homes being newer. The graph shows a
 trend that newer homes tend to sell for a higher price. The y-axis is
 skewed to the right, meaning that the majority of homes sell for a lower
 price which relates to what is seen in step 3.
+
+# Mason’s work:
+
+## Relationship between Acres and Sale Price
+
+``` r
+summary(ames$Acres)
+```
+
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+    ##  0.0000  0.1502  0.2200  0.2631  0.2770 12.0120      89
+
+``` r
+ames %>%  filter(`Sale Price` > 0, `Sale Price` < 1000000, Acres < 2.5) %>% 
+   ggplot(aes(x = Acres, y = `Sale Price`)) + geom_point() +geom_smooth(method = "lm")+labs(
+      title = "Acres vs Sale Price",
+      x = "Acres",
+      y = "Sale Price"
+      )
+```
+
+    ## `geom_smooth()` using formula = 'y ~ x'
+
+![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
+The ‘Acres’ variable ranges from 0 all the way to 12.01, but the median
+is only 0.22, and the mean is 0.26. The data is very right skewed,
+because the mean is greater than the median, and most values are very
+low, and far from the max of 12 acres.
+
+I put together a scatterplot of Acres vs Sale Price to see the effect
+that Acres has on this main variable. For it to be easily readable, I
+capped Acres at 2.5 and Sale Price at 1000000 to limit the skewed effect
+that outliers have on the data. This scatterplot has a trendline, and
+you can clearly see how as Acres increases, Sale Price also increases.
+This makes sense, because in general, larger houses often have larger
+plots of land, meaning more Acres should (in theory) go for higher
+prices. However, this is not always the case. The correlation is not
+extremely strong, and you can see how the confidence of the trendline
+decreases as Acres increases (the interval gets wider).
